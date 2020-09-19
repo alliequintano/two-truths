@@ -1,17 +1,17 @@
 # Two Truths and a Lie
 
-###Requirements
+### Requirements
 * Python 3.8
 * virtualenv
 
-###Setup
+### Setup
 ```
 $ virtualenv -p python3.8 venv
 $ . venv/bin/activate
 (venv) $ pip install .
 ```
 
-###Run
+### Run
 ```
 two-truths
 ```
