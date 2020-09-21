@@ -1,11 +1,12 @@
 import sys
-from src.two_truths import display_options, is_correct_guess
+from src.two_truths import display_options, is_correct_guess, parse_user_selection
 
 
 def main():
     """Usage: two-truths [OPTIONS]
 
-        ¯\_(ツ)_/¯
+        TODO: describe how to play the game
+        TODO: would be kind of cool to have game options for easy, medium, hard?
 
     Options:
       --help       Show this message
@@ -21,7 +22,9 @@ def main():
         options = {"MyTruth1": True, "MyLie": False, "MyTruth2": True}
         while True:
             print(*display_options(options), sep='\n')
-            if is_correct_guess(int(input('select a number: ')), options):
+            guess = parse_user_selection(input('select a number: '), options)
+
+            if is_correct_guess(guess, options):
                 print('You are correct!')
                 break
             else:
