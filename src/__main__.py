@@ -21,7 +21,9 @@ def main():
     else:
         options = {"MyTruth1": True, "MyLie": False, "MyTruth2": True}
         while True:
-            print(*display_options(options), sep='\n')
+            for number, option in enumerate(display_options(options)):
+                number += 1
+                print(number, option, sep=' - ', end='\n')
             guess = parse_user_selection(input('select a number: '), options)
 
             if is_correct_guess(guess, options):
