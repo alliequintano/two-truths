@@ -1,0 +1,14 @@
+{
+    "option1": {
+        "message": "my truth1",
+        "truth_value": true
+    },
+    "option2": {
+        "message": "my truth2",
+        "truth_value": true
+    },
+    "option3": {
+        "message": "my lie",
+        "truth_value": false
+    }
+}

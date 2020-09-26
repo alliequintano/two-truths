@@ -1,4 +1,4 @@
-import sys
+import sys, json
 from src.two_truths import get_player_options, is_correct_guess, parse_player_selection
 
 
@@ -19,18 +19,19 @@ def main():
             print(main.__doc__)
             break
     else:
-        options = {"MyTruth1": True, "MyLie": False, "MyTruth2": True}
-        while True:
-            for number, option in enumerate(get_player_options(options)):
-                number += 1
-                print(number, option, sep=' - ', end='\n')
-            guess = parse_player_selection(input('select a number: '), options)
+        with open('default.json') as json_file:
+            game_data = json.loads(json_file)
+            while True:
+                for option in get_player_options(game_data):
+                    print(option, sep=' - ', end='\n')
+                guess = parse_player_selection(
+                    input('select a number: '), get_player_options)
 
-            if is_correct_guess(guess, options):
-                print('You are correct!')
-                break
-            else:
-                print('Try again!')
+                if is_correct_guess(guess, game_data):
+                    print('You are correct!')
+                    break
+                else:
+                    print('Try again!')
 
 
 if __name__ == '__main__':
