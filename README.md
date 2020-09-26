@@ -7,7 +7,7 @@
 ### Setup
 ```
 $ virtualenv -p python3.8 venv
-$ . venv/bin/activate
+$ . venv/bin/activate           ## Windows: .\venv\Scripts\activate
 (venv) $ pip install .
 ```
 
