@@ -1,7 +1,7 @@
-from src.two_truths import get_player_options, is_correct_guess, parse_player_selection
+from src.two_truths import get_player_options, is_correct_guess, parse_player_selection_as_guess
 
 
-def test_options_displayed_to_player_from_game_input():
+def test_get_player_options():
     options = { "1": True, "2": True, "option3": False }
 
     assert get_player_options(options) == options.keys()
@@ -20,10 +20,8 @@ def test_player_makes_correct_guess():
     assert is_correct_guess(guess, options) == True
 
 def test_parse_player_selction_as_guess():
-    user_selection = "3"
-    options = { "option0": True, "option1": True, "my lie": False }
+    player_selection = 3
+    player_options = ("option0", "option1", "my lie")
     guess = "my lie"
 
-    assert parse_player_selection(user_selection, options) == guess
-
-# TODO: add player_input validation
+    assert parse_player_selection_as_guess(player_selection, player_options) == guess

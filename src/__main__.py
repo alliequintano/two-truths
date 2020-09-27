@@ -1,5 +1,5 @@
 import sys
-from src.two_truths import get_player_options, is_correct_guess, parse_player_selection
+from src.two_truths import get_player_options, is_correct_guess, parse_player_selection_as_guess
 
 
 def main():
@@ -21,16 +21,29 @@ def main():
     else:
         options = {"MyTruth1": True, "MyLie": False, "MyTruth2": True}
         while True:
-            for number, option in enumerate(get_player_options(options)):
+            player_options = get_player_options(options)
+
+            for number, option in enumerate(player_options):
                 number += 1
                 print(number, option, sep=' - ', end='\n')
-            guess = parse_player_selection(input('select a number: '), options)
 
-            if is_correct_guess(guess, options):
-                print('You are correct!')
-                break
-            else:
-                print('Try again!')
+            while True:
+                try:
+                    player_selection = int(input('Please select a number: '))
+                except ValueError:
+                    print('Sorry, I did not understand that.')
+                    continue
+                if player_selection > len(player_options) or player_selection <= 0:
+                    print('Sorry, I did not understand that.')
+                    continue
+                else:
+                    guess = parse_player_selection_as_guess(player_selection, player_options)
+                    if is_correct_guess(guess, options):
+                        print('You are correct!')
+                        break
+                    else:
+                        print('Try again!')
+            break
 
 
 if __name__ == '__main__':
