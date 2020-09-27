@@ -1,4 +1,5 @@
 # Two Truths and a Lie
+[![Build Status](https://travis-ci.com/alliequintano/two-truths.svg?branch=main)](https://travis-ci.com/alliequintano/two-truths)
 
 ### Requirements
 * Python 3.8
