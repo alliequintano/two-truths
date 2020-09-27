@@ -8,7 +8,7 @@
 ```
 $ virtualenv -p python3.8 venv
 $ . venv/bin/activate           ## Windows: .\venv\Scripts\activate
-(venv) $ pip install .
+(venv) $ pip install -r requirements.txt
 ```
 
 ### Run
